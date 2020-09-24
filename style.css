@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: rgb(238,174,202);
+    background: radial-gradient(circle,
+    rgba(238,174,202,1) 0%, rgba(149,176,207,1) 100%);
+
+}
+
+h1{
+    color: lightslategray;
+    font-size: 5em;
+    padding: 1em;
+    text-align: center;
+}
+
+.container{
+    height: 20vh;
+    width: 80vw;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btn{
+    border: none;
+    background: none;
+}
+
+.svg{
+    font-size: 5em;
+    color: lightslategrey;
+    transition: all 0.2s;
+}
+
+.svg:hover{
+    color: lightseagreen;
+}
+
+.div-results{
+    font-size: 2em;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#p-results1, #p-results2, #p-results3{
+    padding: 0 10px;
+}

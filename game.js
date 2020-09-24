@@ -1,44 +1,59 @@
 // 0 = piedra  || 1 = papel || 2 = tijera
 
 function computerPlay(){
-    let output;
     let play = Math.floor(Math.random() * 3);
-    switch(play){
-        case 0:
-            output = "piedra";
-            break;
-        case 1:
-            output = "papel";
-            break;
-        case 2:
-            output = "tijera";
-            break;
+    if (play === 0){
+        return 'rock';
+    } else if(play === 1){
+        return 'paper';
+    } else {
+        return 'scissor';
     }
-    return output;
 }
 
 let computerSelection;
-let result;
 let playerSelection;
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissor = document.querySelector('#scissor');
+
+function changeSelection(){
+    playerSelection = this.value;
+    console.log(playerSelection);
+}
 
 function playRound(){
-    playerSelection = prompt("Ingrese piedra, papel o tijera (de ingresar otra cosa sera descalificado)").toLowerCase();
-    computerPlay();
     computerSelection = computerPlay();
+    console.log(computerSelection);
     if(playerSelection === computerSelection){
-        result = "Empate!";
-    } else if(playerSelection == "piedra" && computerSelection == "tijera" ||
-    playerSelection == "papel" && computerSelection == "piedra"||
-    playerSelection == "tijera" && computerSelection == "papel"){
-        result = "Ganaste!";
+        result = "Tie!";
+    } else if(playerSelection == "rock" && computerSelection == "scissor" ||
+    playerSelection == "paper" && computerSelection == "rock"||
+    playerSelection == "scissor" && computerSelection == "paper"){
+        result = "You win!";
     } else{
-        result = "Perdiste!";
+        result = "You lose!";
     }
     return result;
 }
 
+let pResults1 = document.querySelector('#p-results1');
+let pResults2 = document.querySelector('#p-results2');
+let pResults3 = document.querySelector('#p-results3');
+
 let results = function(){
-    console.log(`Elegiste ${playerSelection}`)
-    console.log(`Contrincante eligió ${computerSelection}`)
-    console.log(result);
+    pResults1.textContent = `You have choosen ${playerSelection}`;
+    pResults2.textContent = `Enemy has choosen ${computerSelection}`
+    pResults3.textContent = result;
 }
+
+
+rock.addEventListener('click', changeSelection);
+rock.addEventListener('click', playRound);
+rock.addEventListener('click', results);
+paper.addEventListener('click', changeSelection);
+paper.addEventListener('click', playRound);
+paper.addEventListener('click', results);
+scissor.addEventListener('click', changeSelection);
+scissor.addEventListener('click', playRound);
+paper.addEventListener('click', results);
