@@ -56,4 +56,4 @@ paper.addEventListener('click', playRound);
 paper.addEventListener('click', results);
 scissor.addEventListener('click', changeSelection);
 scissor.addEventListener('click', playRound);
-paper.addEventListener('click', results);
+scissor.addEventListener('click', results);
