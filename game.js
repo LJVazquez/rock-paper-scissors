@@ -11,49 +11,51 @@ function computerPlay(){
     }
 }
 
-let computerSelection;
-let playerSelection;
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissor = document.querySelector('#scissor');
+let computerSelection;
+let playerSelection;
+const playerScoreVisual = document.querySelector('#player-score');
+const computerScoreVisual = document.querySelector('#computer-score');
+let playerScore = 0;
+let computerScore = 0;
+let computerHand = document.querySelector('#computer-hand');
+let roundResult = document.querySelector('#round-result');
 
 function changeSelection(){
     playerSelection = this.value;
-    console.log(playerSelection);
+    console.log(`player chooses: ${playerSelection}`);
 }
 
 function playRound(){
     computerSelection = computerPlay();
-    console.log(computerSelection);
+    computerHand.textContent = computerSelection;
+        console.log(`computer chooses: ${computerSelection}`);
     if(playerSelection === computerSelection){
-        result = "Tie!";
+        console.log('T I E');
+        roundResult.textContent = 'Tie';
+        return;
     } else if(playerSelection == "rock" && computerSelection == "scissor" ||
     playerSelection == "paper" && computerSelection == "rock"||
     playerSelection == "scissor" && computerSelection == "paper"){
-        result = "You win!";
+        console.log('P L A Y E R  W I N S')
+        playerScore++;
+        playerScoreVisual.textContent = playerScore;
+        roundResult.textContent = 'Player wins!';
+        return;
     } else{
-        result = "You lose!";
+        console.log('C O M P U T E R   W I N S')
+        computerScore++;
+        computerScoreVisual.textContent = computerScore;
+        roundResult.textContent = 'Computer wins!';
+        return;
     }
-    return result;
 }
-
-let pResults1 = document.querySelector('#p-results1');
-let pResults2 = document.querySelector('#p-results2');
-let pResults3 = document.querySelector('#p-results3');
-
-let results = function(){
-    pResults1.textContent = `You have choosen ${playerSelection}`;
-    pResults2.textContent = `Enemy has choosen ${computerSelection}`
-    pResults3.textContent = result;
-}
-
 
 rock.addEventListener('click', changeSelection);
 rock.addEventListener('click', playRound);
-rock.addEventListener('click', results);
 paper.addEventListener('click', changeSelection);
 paper.addEventListener('click', playRound);
-paper.addEventListener('click', results);
 scissor.addEventListener('click', changeSelection);
 scissor.addEventListener('click', playRound);
-scissor.addEventListener('click', results);

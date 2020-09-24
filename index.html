@@ -3,32 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <script src="game.js" async></script>
-    <script src="https://kit.fontawesome.com/a3cc8340a6.js" async
-    crossorigin="anonymous"></script>
-    <title>RPS</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous" async></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous" async></script>
+    <script src="https://kit.fontawesome.com/a3cc8340a6.js" crossorigin="anonymous"></script>
+    <title>Rock paper scissors v2</title>
 </head>
-<body>
-    <header>
-        <h1>ROCK PAPER SCISSORS ULTIMATE EDITION</h1>
-    </header>
-    <div id="btn-container" class="container">
-        <button class="btn" id="rock" value="rock">
-            <i class="fas fa-hand-rock svg"></i>
-        </button>
-        <button class="btn" id="paper" value="paper">
-            <i class="fas fa-hand-paper svg"></i>
-        </button>
-        <button class="btn" id="scissor" value="scissor">
-            <i class="fas fa-hand-scissors svg"></i>
-        </button>
+<body> 
+    <div class="container-fluid">
+        <div class="row mx-auto">
+            <header class="mx-auto">
+                <h1 class="text-center">SUPER ROCK PAPER V2</h1>
+            </header>
+        </div>
     </div>
-    <div class="container div-results">
-        <p id="p-results1"></p>
-        <p id="p-results2"></p>
-        <p id="p-results3"></p>
+    <div class="container mt-2">
+        <div class="row text-center">
+            <div class="col-6 lead bord shad">
+                <div class="col-12">
+                    <p class="bord shad mt-2">Player</p>
+                </div>
+                <div class="container d-flex justify-content-center
+                align-items-center" id="buttons">
+                    <div class="row">
+                        <div class="col-12 my-3">
+                            <button class="rps" id="rock" value="rock">
+                                <i class="fa fa-hand-rock svg"></i>
+                            </button>
+                        </div>
+                        <div class="col-12 my-3">
+                            <button class="rps" id="paper" value="paper">
+                                <i class="fas fa-hand-paper svg"></i>
+                            </button>
+                        </div>
+                        <div class="col-12 my-3">
+                            <button class="rps" id="scissor" value="scissor">
+                                <i class="fas fa-hand-scissors svg"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-9 p-1"><p class="bord shad">Score:</p></div>
+                        <div class="col-3 p-1"><p class="bord shad" id="player-score">
+                            0</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 lead bord shad-right">
+                <div class="col-12">
+                    <p class="bord shad mt-2">Computer</p>
+                </div>
+                <div class="container d-flex justify-content-center
+                align-items-center" id="buttons">
+                    <div class="row">
+                        <div class="col-12 my-3">
+                            <button class="rps" id="computer-hand">
+                            -</button>
+                        </div>
+                        <div class="col-12 my-3 text-center">
+                            <P class="bg-dark text-light" id="round-result">-</P>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-9 p-1"><p class="bord shad">Score:</p></div>
+                        <div class="col-3 p-1"><p class="bord shad" 
+                            id="computer-score">0</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <script src="./game.js"></script>
+    <script src="game.js"></script>
 </body>
 </html>
