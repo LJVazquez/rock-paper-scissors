@@ -5,6 +5,7 @@
 
 h1{
     font-size: 4em;
+    line-height: 0.8em;
 }
 
 p{
@@ -42,10 +43,27 @@ p{
     color: white;
 }
 
-.rps:active{
-
+.rps:focus{
+    outline: none;
 }
 
-.rps:focus{
+.footer{
+    font-size: 2em;
+    border: 1px solid black;
+    box-shadow: -3px 3px 0 black;
+}
+
+#reset{
+    background-color: white;
+    box-shadow: -3px 3px 0 black;
+    border: 1px solid black;
+}
+
+#reset:hover{
+    background-color: black;
+    color: white;
+}
+
+#reset:focus{
     outline: none;
 }
