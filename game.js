@@ -32,14 +32,14 @@ function changeSelection(){
 }
 
 function gameResult(){
-    if(playerScore === 5){
+    if(playerScore === 3){
         results.textContent = 'Player wins!'
         results.classList.add('text-success');
         rock.removeEventListener('click', changeSelection);
         paper.removeEventListener('click', changeSelection);
         scissor.removeEventListener('click', changeSelection);
     }
-    if(computerScore === 5){
+    if(computerScore === 3){
         results.textContent = 'Computer wins!'
         results.classList.add('text-danger');
         rock.removeEventListener('click', changeSelection);
