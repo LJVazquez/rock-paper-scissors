@@ -28,7 +28,26 @@ let roundResult = document.querySelector('#round-result');
 function changeSelection(){
     playerSelection = this.value;
     console.log(`player chooses: ${playerSelection}`);
+    playRound();
 }
+
+function gameResult(){
+    if(playerScore === 5){
+        results.textContent = 'Player wins!'
+        results.classList.add('text-success');
+        rock.removeEventListener('click', changeSelection);
+        paper.removeEventListener('click', changeSelection);
+        scissor.removeEventListener('click', changeSelection);
+    }
+    if(computerScore === 5){
+        results.textContent = 'Computer wins!'
+        results.classList.add('text-danger');
+        rock.removeEventListener('click', changeSelection);
+        paper.removeEventListener('click', changeSelection);
+        scissor.removeEventListener('click', changeSelection);
+    }
+}
+
 
 function playRound(){
     computerSelection = computerPlay();
@@ -37,6 +56,7 @@ function playRound(){
     if(playerSelection === computerSelection){
         console.log('T I E');
         roundResult.textContent = 'Tie';
+        gameResult();
         return;
     } else if(playerSelection == "rock" && computerSelection == "scissor" ||
     playerSelection == "paper" && computerSelection == "rock"||
@@ -45,33 +65,18 @@ function playRound(){
         playerScore++;
         playerScoreVisual.textContent = playerScore;
         roundResult.textContent = 'Player wins!';
+        gameResult();
         return;
     } else{
         console.log('C O M P U T E R   W I N S')
         computerScore++;
         computerScoreVisual.textContent = computerScore;
         roundResult.textContent = 'Computer wins!';
+        gameResult();
         return;
-    }
-
+    } 
 }
 
-function gameResult(){
-    if(playerScore === 5){
-        results.textContent = 'Player wins!'
-        results.classList.add('text-success');
-        rock.removeEventListener('click', playRound);
-        paper.removeEventListener('click', playRound);
-        scissor.removeEventListener('click', playRound);
-    }
-    if(computerScore === 5){
-        results.textContent = 'Computer wins!'
-        results.classList.add('text-danger');
-        rock.removeEventListener('click', playRound);
-        paper.removeEventListener('click', playRound);
-        scissor.removeEventListener('click', playRound);
-    }
-}
 
 function resetGame(){
     playerScore = 0;
@@ -87,12 +92,6 @@ function resetGame(){
 }
 
 rock.addEventListener('click', changeSelection);
-rock.addEventListener('click', playRound);
-rock.addEventListener('click', gameResult);
 paper.addEventListener('click', changeSelection);
-paper.addEventListener('click', playRound);
-paper.addEventListener('click', gameResult);
 scissor.addEventListener('click', changeSelection);
-scissor.addEventListener('click', playRound);
-scissor.addEventListener('click', gameResult);
 reset.addEventListener('click', resetGame);
